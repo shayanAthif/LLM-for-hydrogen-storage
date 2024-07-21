@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q and A Bot</title>
+    <link rel="stylesheet" href="static\css\qa.css">
+</head>
+<body>
+    <div class="container">
+        <div class="chat-container">
+            <div class="header">
+                <span>Bart Q and A Bot</span>
+                <button onclick="startNewChat()">New Chat</button>
+            </div>
+            <div class="chat-box" id="chat-box"></div>
+            <div class="input-box">
+                <form id="upload-form" action="{{ url_for('qa') }}" method="post" enctype="multipart/form-data">
+                    <label for="upload-doc">📎</label>
+                    <input type="file" name="upload-doc" id="upload-doc" accept=".pdf" onchange="uploadPDF()">
+                </form>
+                <input type="text" id="user-input" placeholder="Type a message" onkeypress="handleKeyPress(event)">
+                <button onclick="sendMessage()">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M4 12l1.41 1.41L10 8.83V20h2V8.83l4.59 4.58L20 12 12 4 4 12z"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="static\script\qa.js"></script>
+</body>
+</html>
